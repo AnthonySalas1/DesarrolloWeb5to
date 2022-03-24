@@ -1,0 +1,105 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASA DE CAMBIO</title>
+    <script>
+        function TipoMoneda() {
+            var dato = parseInt(document.getElementById("monto").value);
+            var opciones = document.getElementsByName("moneda");
+            console.log(opciones)
+            var x = (opciones[0]).checked
+            console.log(x)
+            // 1 euro
+            // 0 dolar
+            // 2 sol
+            var opciones1 = document.getElementsByName("M");  //monto
+            // 0 Soles
+            // 1 Dolares
+            // 2 Euros
+            console.log(opciones1)  
+            if (dato && dato) {
+
+                //MONTO EN SOLES A...
+                if (opciones1[0].value=="Soles") {
+                    if (x == "Dolar") {
+                        
+                        alert("$/." + dato / 4.08);
+
+                    } else if (opciones[1].value == "Euro") {
+                        
+                        alert("€/." + dato / 4.86);
+
+                    } else {
+
+                        alert("S/." + dato);
+
+                        }
+                  // MONTO EN DOLARES A   
+                } else if (opciones1[1].value=="Dolares") {
+                    if (opciones[2].value === "Sol") {
+
+                        alert("S/." + dato * 4.08);
+
+                    } else if (opciones[1].value == "Dolar") {
+                        
+                        alert("$/." + dato);
+                        
+                    } else {
+                
+                        alert("€/." + dato / 0.84);
+                            }
+                        
+                    } else {
+
+                        //Monto en euros
+
+                        if (opciones[2].value == "Sol") {
+
+                            alert("S/." + dato * 4.81);
+
+                        } else if (opciones[0].value == "Dolar") {
+
+                            alert("$/." + dato * 1.18);
+
+                        } else { 
+                                
+                            alert("€/." + dato);
+                        }                      
+                    }
+            } else {
+
+                alert("Dato erroneo");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <h1>CASA DE CAMBIO</h1>
+        <p>
+        <h2>SELECCIONE MODENA FINAL:</h2>
+        <input type="radio" name="moneda" id="Dolar" value="Dolar" checked>Dolar<br/>
+        <input type="radio" name="moneda" id="Euro" value="Euro">Euro<br/>
+        <input type="radio" name="moneda" id="Sol" value="Sol">Soles<br/>
+        </p>
+
+        <h2>Monto:</h2>
+        <p>
+            <select name="op" id="op">
+                <option value="Soles" id="Soles" name="M" checked>Soles</option>
+                <option value="Dolares" name="M" id="Dolares" >Dolares</option>
+                <option value="Euros" name="M" id="Euros"  >Euros</option>
+                <input type="text" id="montot">
+            </select>
+        </p>
+
+        <button type="button" onclick="TipoMoneda()">Cotizar</button>
+    </center>
+
+</body>
+
+</html>
